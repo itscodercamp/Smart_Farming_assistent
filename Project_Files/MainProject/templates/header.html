@@ -1,0 +1,301 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="color:#33001a; font-size:25px; font-family: cursive; " href="{% url 'home' %}">Smart Farming Assistant</a>
+      {% comment %} <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> {% endcomment %}
+      <button class="btn btn-light border shadow" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Menu</button>
+      <div class="search-box">
+        <button id="voice-button" class='btn btn-light border shadow playButton'><i class="fa-sharp fa-solid fa-microphone"></i></button>
+      </div><div id="content" class='btn btn-light border shadow'></div>
+    </div>
+  </nav>
+  {% block links %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  {% endblock links %}
+  
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">     <a class="navbar-brand" style="color:#33001a; font-size:25px; font-family: cursive; " href="{% url 'home' %}">Smart Farming Assistant</a></h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body" style="color:#33001a; font-size:17px; font-family: cursive;  ">
+
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+      </li>              <li class="nav-item">
+        <hr class=""></li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">About Us</a>
+      </li>
+      {% comment %}              <li class="nav-item">
+        <hr class=""></li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'Contact' %}">Contact </a>
+      </li> {% endcomment %}
+      <li class="nav-item">
+        <hr class=""></li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'Basic_Farming' %}">Flower Farming</a></li>
+        <li class="nav-item">              <li class="nav-item">
+          <hr class=""></li>
+          <a class="nav-link" href="{% url 'Types_of_Farming' %}">Types for Farming</a></li>
+          <li class="nav-item">              <li class="nav-item">
+            <hr class=""></li>
+            <a class="nav-link" href="{% url 'Products_Farming' %}">Fertilizers & Products</a></li>
+            <li class="nav-item">              <li class="nav-item">
+              <hr class=""></li>
+              <a class="nav-link" href="{% url 'Equpement_Farming' %}">Farming Equpements</a></li>
+                <li class="nav-item">              <li class="nav-item">
+                  <hr class=""></li>
+                  <a class="nav-link" href="{% url 'Scheme_Farming' %}">Get Farming Scheme</a></li>
+
+                  <li class="nav-item">
+                    <hr class=""></li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/" target="_blank">Admin Panel</a>
+      </li>
+      <li class="nav-item">
+        <hr class=""></li>
+        {% comment %} <li class="nav-item">
+          <form>
+            <input type="text" id="search-input" class="form-control">
+            <button type="submit" id="search-submit" class="btn btn-default">Search</button>
+          </form>        </li>
+        <li class="nav-item">
+          <hr class=""></li> {% endcomment %}
+    </ul>
+
+  </div>
+</div>
+
+{% comment %} 
+<script>
+  // create a SpeechRecognition object
+  const recognition = new window.webkitSpeechRecognition();
+  let isRecognitionRunning = false;
+
+  // set the language for speech recognition
+  recognition.lang = 'en-US';
+
+  // when speech input is detected, filter the content on the page
+  recognition.onresult = (event) => {
+    const speechResult = event.results[0][0].transcript;
+    console.log(`You said: ${speechResult}`);
+
+    // filter content based on speech input
+    const keyword = speechResult.toLowerCase();
+    const elements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, div, span, nav');
+    elements.forEach(element => {
+      if (element.innerText.toLowerCase().includes(keyword)) {
+        element.style.backgroundColor = 'yellow';
+      } else {
+        element.style.backgroundColor = '';
+      }
+    });
+  };
+
+  // when speech recognition ends, start it again if it's still running
+  recognition.onend = () => {
+    if (isRecognitionRunning) {
+      recognition.start();
+    }
+  };
+
+  // start or stop speech recognition when the button is clicked
+  const voiceButton = document.querySelector('#voice-button');
+  voiceButton.addEventListener('click', () => {
+    if (isRecognitionRunning) {
+      isRecognitionRunning = false;
+      recognition.stop();
+      voiceButton.textContent = 'Start';
+    } else {
+      isRecognitionRunning = true;
+      recognition.start();
+      voiceButton.textContent = 'Stop';
+    }
+  });
+
+  // capture the search query from the input box and pass it to speech recognition
+  const searchBox = document.querySelector('#search-box');
+  searchBox.addEventListener('input', () => {
+    const query = searchBox.value;
+    if (isRecognitionRunning) {
+      recognition.stop();
+      recognition.start();
+      recognition.onresult({results: [[{transcript: query}]]});
+    }
+  });
+</script> {% endcomment %}
+
+{% comment %} 
+<script>
+  const recognition = new webkitSpeechRecognition();
+  recognition.continuous = false;
+  recognition.interimResults = false;
+  recognition.lang = "en-US";
+  
+  document.querySelector("#search-submit").addEventListener("click", function(e) {
+    e.preventDefault();
+    const searchInput = document.querySelector("#search-input");
+    window.location.href = "/search/?q=" + searchInput.value;
+  });
+  
+  document.querySelector("#search-input").addEventListener("click", function() {
+    recognition.start();
+  });
+  
+  recognition.addEventListener("result", function(event) {
+    document.querySelector("#search-input").value = event.results[0][0].transcript;
+    recognition.stop();
+  });
+</script> {% endcomment %}
+
+
+
+<script>
+  // create a SpeechRecognition object
+  const recognition = new window.webkitSpeechRecognition();
+  let isRecognitionRunning = false;
+
+  // set the language for speech recognition
+  recognition.lang = 'en-US';
+
+  // when speech input is detected, filter the content on the page
+  recognition.onresult = (event) => {
+    const speechResult = event.results[0][0].transcript;
+    console.log(`You said: ${speechResult}`);
+
+    // check for specific voice commands
+    switch (speechResult.toLowerCase()) {
+      case 'about':
+        window.location.href = 'About';
+        break;
+        case 'about us':
+        window.location.href = 'About';
+        break;
+
+      case 'home':
+        window.location.href = '/';
+        break;
+
+        case 'chal nikal':
+        window.location.href = '/';
+        break;
+
+      case 'contact':
+        window.location.href = 'Contact_Us';
+        break;
+        case 'contact us':
+        window.location.href = 'Contact_Us';
+        break;
+
+      case 'flower farming':
+        window.location.href = 'Farming_Basics';
+        break;
+        case 'flower':
+        window.location.href = 'Farming_Basics';
+        break;
+        case 'flowers':
+        window.location.href = 'Farming_Basics';
+        break;
+
+      case 'farming equipment':
+        window.location.href = 'Farming_Equpement';
+        break;
+        case 'equipment':
+        window.location.href = 'Farming_Equpement';
+        break;
+        case 'equipments':
+        window.location.href = 'Farming_Equpement';
+        break;
+
+      case 'farming products':
+        window.location.href = 'Farming_Products';
+        break;
+        case 'products':
+        window.location.href = 'Farming_Products';
+        break;
+        case 'product':
+        window.location.href = 'Farming_Products';
+        break;
+
+      case 'types of farming':
+        window.location.href = 'Farming_Types';
+        break;
+        case 'variety':
+        window.location.href = 'Farming_Types';
+        break;
+
+      case 'farming scheme':
+        window.location.href = 'Farming_Scheme';
+        break;
+        case 'scheme':
+        window.location.href = 'Farming_Scheme';
+        break;
+
+      case 'admin panel':
+        window.location.href = 'admin/';
+        break;
+        case 'admin':
+        window.location.href = 'admin/';
+        break;
+
+    }
+
+    // filter content based on speech input
+    const keyword = speechResult.toLowerCase();
+    const elements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, div, span, nav');
+    elements.forEach(element => {
+      if (element.innerText.toLowerCase().includes(keyword)) {
+        element.style.backgroundColor = 'yellow';
+      } else {
+        element.style.backgroundColor = '';
+      }
+    });
+  };
+
+  // when speech recognition ends, start it again if it's still running
+  recognition.onend = () => {
+    if (isRecognitionRunning) {
+      recognition.start();
+    }
+  };
+
+  // start or stop speech recognition when the button is clicked
+  const voiceButton = document.querySelector('#voice-button');
+  voiceButton.addEventListener('click', () => {
+    if (isRecognitionRunning) {
+      isRecognitionRunning = false;
+      recognition.stop();
+      voiceButton.textContent = 'Start';
+    } else {
+      isRecognitionRunning = true;
+      recognition.start();
+      voiceButton.textContent = 'Stop';
+    }
+  });
+
+
+
+
+  // capture the search query from the input box and pass it to speech recognition
+  const searchBox = document.querySelector('#search-box');
+  searchBox.addEventListener('input', () => {
+    const query = searchBox.value;
+    if (isRecognitionRunning) {
+      recognition.stop();
+      recognition.start();
+      recognition.onresult({results: [[{transcript: query}]]});
+    }
+  });
+</script>
+
+<div class="whatsapp-float" style="top: 75%;">
+  <a href="https://wa.me/whatsappphonenumber" target="_blank">
+    <img src="{% static 'images/wp.png' %}" alt="WhatsApp" width="50" height="50">
+  </a>
+</div>

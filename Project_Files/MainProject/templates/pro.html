@@ -1,0 +1,98 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %} Farming Products{% endblock title %}
+{% block body %}
+{% block links %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<style>
+      .card {
+        margin-bottom: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease-in-out;
+      }
+      .card:hover {
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+        transform: scale(1.05);
+      }
+      .btn-buy {
+        background-color: #f44336;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        border-radius: 4px;
+        transition: all 0.3s ease-in-out;
+      }
+      .btn-buy:hover {
+        background-color: #b71c1c;
+        cursor: pointer;
+        transform: scale(1.05);
+      }
+    </style>
+{% endblock links %}
+<div class="container ">
+    <br><br><hr><br><br>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for materials1 in basic_farming1 %}
+        <div class="col">
+          <h2 class="text-center"><h4 class="card-text">Product Type: {{materials1.category}}</h4>
+          </h2>
+          <div class="card border-info border-1">
+            <img src="/media/{{materials1.images}}" class="card-img-top" alt="..."><hr>
+            <div class="card-body">
+              <h2 class="card-title">{{materials1.name}}</h2><hr>
+              <p class="card-text">{{materials1.discription}}</p>        <hr class=""></li>
+
+              <p class="card-text"> Price -- {{materials1.rate}}</p>
+              <a class='btn btn-primary btn-buy' data-bs-toggle="modal" data-bs-target="#exampleModal" >Buy this</a>
+              
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br><br><hr><br><br>
+
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">get in touch with </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        {% include 'buyingdetails.html' %}
+
+            </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit Request</button>
+      </div>
+    </div>
+  </div>
+</div>    <br><br><hr><br><br>
+    {% comment %} <div class="row g-4 ">
+        {% for materials in basic_farming %}
+        <div class="card col" style="width: 15rem;">
+          <img src="/media/{{materials.product_image}}" class="card-img-top" alt="..."><hr>
+          <div class="card-body">
+            <h5 class="card-title">{{materials.product_name}}</h5><hr>
+            <p class="card-text">{{materials.product_discription}}</p>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br><br><hr><br><br> {% endcomment %}
+
+</div>
+
+{% endblock body %}

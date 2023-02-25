@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %} Farming Guidence{% endblock title %}
+{% block body %}
+
+<div class="container ">
+    <br><hr><br>
+
+<div class="card mb-3">
+    <img src="/media/{{basic_farming.Images}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{basic_farming.title}}</h5>
+      <p class="card-text">{{basic_farming.Discription}}</p>
+      <br><a class="btn btn-primary" href="{% url 'Types_of_Farming' %}"> Go to Farming List </a>
+      <p class="card-text text-center bg-light "><small class="text-muted">Designed and Developed By <a href='mailto:itscodercamp@gmail.com'>FOCS IT Services</a></small></p>
+    </div>
+  </div>
+  <br><br><hr><br><br>
+
+
+{% endblock body %}

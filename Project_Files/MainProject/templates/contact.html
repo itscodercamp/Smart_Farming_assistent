@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Contact Us {% endblock title %} 
+{% block body %}
+{% for msg in messages %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Thank You </strong> {{msg}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endfor %}
+<div class="container mt-5 mb-5 pt-5 pb-5">
+    <h1 class='text-center mb-5'>Get Advice from our Farming Experts about your products</h1>
+<div class="container shadow-lg rounded">
+    <br><hr><br>
+<form action="" method="post" class=" needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6">
+            <label >Firstname </label>
+
+          <input type="text" name="firstname" class="form-control" placeholder="First name" aria-label="First name" required>
+        </div>
+        <div class="col-6 ">
+            <label>Lastname</label>
+          <input type="text" name="lastname" class="form-control" placeholder="Last name" aria-label="Last name" required>
+        </div>
+        <div class="col-8 mt-3">
+            <label for="validationDefaultUsername">Email </label>
+
+            <input type="text" name="email"  placeholder="Email Address:    example12345@example.com" class="form-control" id="validationDefaultUsername"  aria-describedby="inputGroupPrepend2" required>
+          </div>
+          <div class="col-12 mt-3">
+            <label>Send your Querry </label>
+            <textarea class='form-control' style="height: 260px;" name="subjects" required></textarea>
+        </div>
+        <button class="btn btn-primary rounded shadow mt-5 col-6 mx-auto" type="submit" >Submit it</button>
+      </div>
+    </form>
+      <br><hr><br>
+
+    </div>
+    
+
+</div>
+{% endblock body %}

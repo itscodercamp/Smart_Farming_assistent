@@ -1,0 +1,18 @@
+## Voice Keyword ##
+
+## Use Chrome Browser for extension support of voice support
+
+1. about & about us 
+2. contact & contact us
+3. flower farming & flower & flowers
+4. farming equpements , equpements & equpement
+5. farming product , products & product
+6. types of farming & variety
+7. farming scheme
+8. admin & admin panel
+
+## Project Executions 
+
+## To run the project you have to go to same path and activate virtualenv by using command >>> evv\Script\activate .
+## After that run steup.py file using command >>> python setup.py on same cmd window
+## Project run bu itself and open the browser.

@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %} Flower Farming {% endblock title %}
+{% block body %}
+
+<div class="container ">
+{% for materials in basic_farming %}
+    <div class='text-center mt-5 mb-5 pt-5 pb-5 container shadow rounded-5 row '>
+        <h2 class='text-center border-bottom  col-8 mx-auto text-success'>{{materials.topicName}}</h2>
+        <img class='img-fluid mt-5 mb-5 shadow-lg rounded' src="/media/{{materials.cover_image}}">
+        <p>{{materials.topic_discription}}</p>
+
+    </div>
+    <br><br><hr><br><br>
+    {% endfor %}
+</div>
+
+{% endblock body %}
+

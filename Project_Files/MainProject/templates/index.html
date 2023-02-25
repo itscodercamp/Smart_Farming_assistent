@@ -1,0 +1,82 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Home {% endblock title %} 
+
+{% block body %}
+{% comment %} image for header of website {% endcomment %}
+<img src="{% static 'images/cover.gif' %}" class="img-fluid" alt="First cover look find it as cover.gif ">
+{% comment %} containers for about sections or other stuffs {% endcomment %}
+<div class="container">
+
+
+  <div class="container mt-5 mb-5 pb-5 pt-5 rounded shadow">
+      <div class="card-body text-center">
+      <h1 class="card-title text-center mb-5">About Us</h1>
+      <p class="card-text">Smart farming, also known as precision farming or precision agriculture, is the use of technology to improve agricultural practices.
+          This can include the use of sensors, drones, and other tools to gather data about the condition of crops and soil,
+            as well as automated systems for watering and fertilizing. The goal of smart farming is to increase crop yields, reduce the use of resources such as water and fertilizer,
+            and improve the overall efficiency of agriculture.
+          This can help to feed a growing population while also protecting the environment.</p>
+      <a class="btn btn-primary " href="{% url 'about' %}">Know More</a>
+      </div>
+  </div>
+
+<br><br>
+<h1 class="text-center pt-5 pb-5 mt-5 mb-5 ">All Services<hr class='col-5 mx-auto'></h1>
+
+
+<div class="row row-cols-1 row-cols-md-2 g-4 shadow-lg border-rounded pb-4">
+
+  <div class="col">
+    <div class="card">
+      <img src="{% static 'images/GetBasic.gif' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Know Basic Details About Farming</h5>
+        <p class="card-text">Farming refers to the practice of cultivating crops and raising livestock for food, fuel, and other products. 
+          It is an important part of human civilization, as it provides us with the majority of the food we eat.</p>
+          <a class="btn btn-primary" href="{% url 'Basic_Farming' %}">Know More</a>
+
+        </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="{% static 'images/farmingproducts.gif' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Know Farming Products</h5>
+        <p class="card-text">Farming produces a wide range of products, including food crops, such as fruits, vegetables,
+           grains, and nuts; fiber crops, such as cotton and wool; and animal products, such as meat, milk, and eggs.</p>
+           <a class="btn btn-primary" href="{% url 'Basic_Farming' %}">Know More</a>
+
+          </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="{% static 'images/equipements.gif' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Know about Farming Equipements</h5>
+        <p class="card-text">Farming involves the use of a wide range of equipment and tools to cultivate crops and raise livestock. 
+          Some of the most common types of farming equipment include tractors, plows, harvesters, and irrigation systems..</p>
+          <a class="btn btn-primary" href="{% url 'Equpement_Farming' %}">Know More</a>
+        </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="{% static 'images/teamguide.gif' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Get Expert Advice from our team</h5>
+        <p class="card-text">Our team work on specific sections of farming techniques and the we have wide number of problems solving techniques for Smart Farming Solutions and Need to get better crops and Profits
+         Our team is Always ready to Get Your answers soon.</p>
+         <a class="btn btn-primary" href="{% url 'Types_of_Farming' %}">Know More</a>
+
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br>
+
+
+</div>
+{% endblock body %}

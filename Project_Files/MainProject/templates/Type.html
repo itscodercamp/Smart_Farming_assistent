@@ -1,0 +1,65 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %} Farming Guidence{% endblock title %}
+{% block body %}
+
+<div class="container ">
+  <br><br><hr><br><br>
+
+  <h1 class='text-center'>We have All Types of Farming Details</h1>
+    <br><br><hr><br><br>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for materials in basic_farming %}
+
+    <div class="col rounded pt-3" >
+      <div class="card shadow">
+        <img src="/media/{{materials.Images}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{materials.title}}</h5>
+          <p class="myElement card-text" >{{materials.Discription}}</p>
+          <a class="btn btn-primary" href="{% url 'Full_Details' materials.slug %}">Get All</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>    <br><br><hr><br><br>
+<h3 class='text-center'> More Adding Soon...</h3>
+<br><br><hr><br><br>
+
+</div>
+<script>
+  // Get all elements with the "myElement" class
+  const elements = document.querySelectorAll('.myElement');
+
+  // Loop through the elements
+  elements.forEach(element => {
+    // Get the text content of the element
+    const text = element.textContent;
+
+    // Split the text into an array of words
+    const words = text.split(' ');
+
+    // Initialize a new array to hold the first 30 words
+    const first30Words = [];
+
+    // Loop through the first 30 words and add them to the array
+    for (let i = 0; i < 30; i++) {
+      if (words[i]) {
+        first30Words.push(words[i]);
+      }
+    }
+
+    // Join the first 30 words into a string, separated by a space
+    const first30WordsString = first30Words.join(' ');
+
+    // Set the element's text content to the first 30 words
+    element.textContent = first30WordsString;
+
+
+  });
+</script>
+{% endblock body %}
+
+
+

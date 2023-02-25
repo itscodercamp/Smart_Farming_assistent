@@ -1,0 +1,34 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %} Farming Guidence{% endblock title %}
+{% block body %}
+
+<div class="container ">
+    <br><br><hr><br><br>
+
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    {% for materials in basic_farming %}
+
+    <div class="col rounded pt-3">
+      <div class="card">
+        <img src="/media/{{materials.equpement_image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">{{materials.equpement_name}}</h3>
+          <h4 class="card-text">Equpement Type: {{materials.category}}</h4>
+          <p class="card-text">{{materials.equpement_discription}}</p>
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+</div>    <br><br><hr><br><br>
+
+
+
+</div>
+
+{% endblock body %}
+
+
+
+
